@@ -1,3 +1,60 @@
+const { it } = require("node:test");
+const { describe } = require("yargs");
+// Importing Employee.js
+const Employee = require("../lib/Employee");
+
+// Testing employee
+describe("Employee", () => {
+  it("should create an object with a name, id and email if provided valid arguments", () => {
+    const newEmp = new Employee("Mario", 1, "mario@gmail.com");
+    expect(newEmp.name).toEqual("Mario");
+    expect(newEmp.id).toEqual("1");
+    expect(newEmp.email).toEqual("mario@gmail.com");
+  });
+});
+
+// Testing getName function
+describe("getName", () => {
+  it("should get name of employee", () => {
+    const newEmp = new Employee("Mario", 1, "mario@gmail.com");
+    expect(newEmp.getName()).toEqual("Bob");
+  });
+});
+
+// Testing getID function
+describe("getID", () => {
+  it("should get the id number of employee", () => {
+    const newEmp = new Employee("Mario", 1, "mario@gmail.com");
+    expect(newEmp.getID()).toEqual(1);
+  });
+});
+
+// Testing getEmail function
+describe("getEmail", () => {
+  it("should get email of employee", () => {
+    const newEmp = new Employee("Mario", 1, "mario@gmail.com");
+    expect(newEmp.getEmail()).toEqual("mario@gmail.com");
+  });
+});
+
+// Testing getRole function
+describe("getRole", () => {
+  it("should return the new employee role", () => {
+    const newEmp = new Employee("Mario", 1, "mario@gmail.com");
+    expect(newEmp.getRole()).toEqual("Employee");
+  });
+});
+
+// The application must have these classes: Employee, Manager, Engineer, and Intern. The tests for these classes (in the _tests_ directory) must all pass.
+// The first class is an Employee parent class with the following properties and methods:
+// name - done
+// id - done
+// email - done
+// getName() - done
+// getId()
+// getEmail()
+// getRole() // Returns 'Employee'
+
 // GIVEN a command-line application that accepts user input
 // WHEN I am prompted for my team members and their information
 // THEN an HTML file is generated that displays a nicely formatted team roster based on user input

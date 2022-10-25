@@ -22,6 +22,6 @@ describe("getOffice", () => {
 describe("getRole", () => {
   it("should get Manager role", () => {
     const newManager = new Manager("Mario", 1, "mario@gmail.com", 2);
-    expect(newManager.getRole()).toEqual(2);
+    expect(newManager.getRole()).toEqual("Manager");
   });
 });

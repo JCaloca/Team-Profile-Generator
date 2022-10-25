@@ -1,5 +1,3 @@
-const { it } = require("node:test");
-const { describe } = require("yargs");
 // Importing Employee.js
 const Employee = require("../lib/Employee");
 
@@ -8,7 +6,7 @@ describe("Employee", () => {
   it("should create an object with a name, id and email if provided valid arguments", () => {
     const newEmp = new Employee("Mario", 1, "mario@gmail.com");
     expect(newEmp.name).toEqual("Mario");
-    expect(newEmp.id).toEqual("1");
+    expect(newEmp.id).toEqual(1);
     expect(newEmp.email).toEqual("mario@gmail.com");
   });
 });
@@ -17,7 +15,7 @@ describe("Employee", () => {
 describe("getName", () => {
   it("should get name of employee", () => {
     const newEmp = new Employee("Mario", 1, "mario@gmail.com");
-    expect(newEmp.getName()).toEqual("Bob");
+    expect(newEmp.getName()).toEqual("Mario");
   });
 });
 

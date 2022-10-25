@@ -1,8 +1,82 @@
+const Employee = require("../lib/Employee");
+
 // TODO: generate Manager Card
+function generateManagerCard(manager) {
+  return `
+  <div class="card employee-card">
+  <div class="card-header">
+      <h2 class="card-title">${manager.getName()}</h2>
+      <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${manager.getRole()}</h3>
+  </div>
+  <div class="card-body">
+      <ul class="list-group">
+          <li class="list-group-item">ID: ${manager.getID()}</li>
+          <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
+          <li class="list-group-item">Office number: ${manager.getOffice()}</li>
+      </ul>
+  </div>
+</div>
+  `;
+}
 
 // TODO: generate Engineer Card
-
+function generateEngineerCard(engineer) {
+  return `
+  <div class="card employee-card">
+  <div class="card-header">
+      <h2 class="card-title">${engineer.getName()}</h2>
+      <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${engineer.getRole()}</h3>
+  </div>
+  <div class="card-body">
+      <ul class="list-group">
+          <li class="list-group-item">ID: ${engineer.getID()}</li>
+          <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
+          <li class="list-group-item">GitHub: ${engineer.getGitHub()}</li>
+      </ul>
+  </div>
+</div>
+  `;
+}
 // TODO: generate Intern Card
+function generateInternCard(intern) {
+  return `
+  <div class="card employee-card">
+  <div class="card-header">
+      <h2 class="card-title">${intern.getName()}</h2>
+      <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${intern.getRole()}</h3>
+  </div>
+  <div class="card-body">
+      <ul class="list-group">
+          <li class="list-group-item">ID: ${intern.getID()}</li>
+          <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
+          <li class="list-group-item">School: ${intern.getSchool()}</li>
+      </ul>
+  </div>
+</div>
+  `;
+}
+
+function renderTeam(team) {
+  let teamHTML = [];
+  teamHTML.push(
+    team
+      .filter((emp) => emp.getRole() === "Manager")
+      .map((mgr) => generateManagerCard(mgr))
+  );
+  teamHTML.push(
+    team
+      .filter((emp) => emp.getRole() === "Engineer")
+      .map((eng) => generateEngineerCard(eng))
+      .join("")
+  );
+  teamHTML.push(
+    team
+      .filter((emp) => emp.getRole() === "Intern")
+      .map((int) => generateInternCard(int))
+      .join("")
+  );
+  return teamHTML.join("");
+}
 
 // TODO: Create function to generate html file format
 function generateHTML(data) {
@@ -25,7 +99,7 @@ function generateHTML(data) {
       <title>Team Profile</title>
     </head>
     <body>
-      <div class="jumbotron jumbotron-fluid bg-dark text-white"">
+      <div class="jumbotron jumbotron-fluid bg-dark text-white">
         <div class="container">
           <h1 class="display-4">Team Members</h1>
           <p class="lead">Meet our team!</p>
@@ -34,6 +108,7 @@ function generateHTML(data) {
       <div class="container">
         <div class="row justify-content-center" id="employee-cards">
           <!--Section for Employee Cards to be appended-->
+          ${renderTeam(data)}
         </div>
       </div>
   

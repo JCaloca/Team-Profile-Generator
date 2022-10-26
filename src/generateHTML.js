@@ -1,5 +1,3 @@
-const Employee = require("../lib/Employee");
-
 // TODO: generate Manager Card
 function generateManagerCard(manager) {
   return `

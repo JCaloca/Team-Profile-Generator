@@ -124,12 +124,12 @@ const internQuestions = [
 ];
 
 // TODO: Create function to write HTML file
-// TODO: Convert to generate HTML in dist folder
-function writeToFile(fileName, data) {
-  fs.writeFile(fileName, data, (err) =>
-    err ? console.log(err) : console.log("Sucessfully created HTML!")
-  );
-}
+
+// function writeToFile(fileName, data) {
+//   fs.writeFile(fileName, data, (err) =>
+//     err ? console.log(err) : console.log("Sucessfully created HTML!")
+//   );
+// }
 
 function addEngineer() {
   inquirer.prompt(engineerQuestions).then((answers) => {
@@ -157,6 +157,7 @@ function addIntern() {
   });
 }
 
+// Convert to generate HTML in dist folder
 function buildTeam() {
   if (!fs.existsSync(DIST_DIR)) {
     fs.mkdirSync(DIST_DIR);
@@ -165,12 +166,6 @@ function buildTeam() {
   fs.writeFileSync(distPath, generateHTML(teamMembers), "utf-8");
 }
 
-// TODO: Create function to initialize app
-// function init() {
-//   inquirer.prompt(questions).then(function (userInput) {
-//     writeToFile("index.html", generateHTML(userInput));
-//   });
-// }
 function addTeamMember() {
   inquirer
     .prompt({
@@ -205,8 +200,8 @@ function managerMenu() {
     addTeamMember();
   });
 }
-// Call init function
 
+// Call init function
 function init() {
   managerMenu();
 }

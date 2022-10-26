@@ -3,7 +3,7 @@ const Employee = require("../lib/Employee");
 // TODO: generate Manager Card
 function generateManagerCard(manager) {
   return `
-  <div class="card employee-card">
+  <div class="card employee-card mx-2">
   <div class="card-header">
       <h2 class="card-title">${manager.getName()}</h2>
       <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${manager.getRole()}</h3>
@@ -22,10 +22,10 @@ function generateManagerCard(manager) {
 // TODO: generate Engineer Card
 function generateEngineerCard(engineer) {
   return `
-  <div class="card employee-card">
+  <div class="card employee-card mx-2">
   <div class="card-header">
       <h2 class="card-title">${engineer.getName()}</h2>
-      <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${engineer.getRole()}</h3>
+      <h3 class="card-title"><i class="fa-solid fa-glasses mr-2"></i>${engineer.getRole()}</h3>
   </div>
   <div class="card-body">
       <ul class="list-group">
@@ -40,10 +40,10 @@ function generateEngineerCard(engineer) {
 // TODO: generate Intern Card
 function generateInternCard(intern) {
   return `
-  <div class="card employee-card">
+  <div class="card employee-card mx-2">
   <div class="card-header">
       <h2 class="card-title">${intern.getName()}</h2>
-      <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${intern.getRole()}</h3>
+      <h3 class="card-title"><i class="fa-solid fa-user-graduate mr-2"></i>${intern.getRole()}</h3>
   </div>
   <div class="card-body">
       <ul class="list-group">
@@ -89,7 +89,7 @@ function generateHTML(data) {
         name="viewport"
         content="width=device-width, initial-scale=1, shrink-to-fit=no"
       />
-      <!-- Bootstrap CSS -->
+      <script src="https://kit.fontawesome.com/aaedc34d30.js" crossorigin="anonymous"></script>
       <link
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
